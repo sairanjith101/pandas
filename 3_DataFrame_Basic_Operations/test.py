@@ -1,17 +1,11 @@
 import pandas as pd
 
-# Read
 df = pd.read_csv('data.csv')
 
+# Append new row
+df = df._append({'Name': 'Sam', 'Age': 50, 'Department': 'Claim'}, ignore_index=True)
 
-# Append new row (Use `pd.concat` instead of `append` in newer pandas versions)
-df = pd.concat([df, pd.DataFrame([{'Name': 'Vijay', 'Age': 59, 'Department': 'vIr'}])], ignore_index=True)
+# Drop the row with index 5
+df = df.drop(index=5)
 
-print("After Append:")
-print(df)
-
-# Drop row with index 4 (Use `inplace=True` to modify `df`)
-df.drop(5, inplace=True)
-
-print("After Drop:")
 print(df)
