@@ -1,6 +1,5 @@
 import pandas as pd
 
 df = pd.read_csv('data.csv')
-
-df.fillna(value=0, inplace=True)
+df['Name'] = df['Name'].str.upper()
 print(df)
